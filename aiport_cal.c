@@ -25,21 +25,13 @@ int main () {
 	
 		case 'B':
 		case 'b':
-			baseFare = 6500;
+			baseFare = 6500.00;
 			allowance = 40;
 			break;
 			
 		default:
 			printf("Invalid\n");
 			return 0;		
-	}
-	
-	if (baggageWeight > allowance) {
-		excessBaggage = (baggageWeight - allowance) * 150;
-		
-	}
-	else {
-		excessBaggage = 0;
 	}
 	
 	do {
@@ -50,8 +42,19 @@ int main () {
 		printf("Invalid baggage Weight!\n");
 	}
 	
-	totalFare = baseFare + excessBaggage;
 	} while (baggageWeight < 0);
+	
+	
+	if (baggageWeight > allowance) {
+		excessBaggage = (baggageWeight - allowance) * 150;
+		
+	}
+	else {
+		excessBaggage = 0;
+	}
+	
+	totalFare = baseFare + excessBaggage;
+	
 	
 	
 	printf ("\n---------BOARDING SUMMARY----------\n");
@@ -67,12 +70,12 @@ int main () {
 	printf("Excess Baggage Fee: PHP %.2f\n", excessBaggage);
 	printf("Total Fare: PHP %.2f\n", totalFare);
 	
-	printf("----------------------------------------");
+	printf("----------------------------------------\n");
 	
 	printf ("Do you want to calculate another passenger? (Y/N): ");
 	scanf(" %c", &again);
 	
-	} while (again == 'Y' || again == 'N');
+	} while (again == 'Y' || again == 'y');
 	
 	return 0;
 }
